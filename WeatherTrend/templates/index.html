@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="weather">
+    <h1>Weather!</h1>
+    <form>
+        <select id="cities">
+            <option name="qingdao" value="qingdao" selected>青岛</option>
+            <option name="jinan" value="jinan">济南</option>
+            <option name="yantai" value="yantai">烟台</option>
+            <option name="weifang" value="weifang">潍坊</option>
+            <option name="weihai" value="weihai">威海</option>
+        </select>
+    </form>
+</div>
+<!--<script src="./static/gua.js"></script>-->
+<script>
+    const bindEventSelector = () => {
+        const selector = document.querySelector('#cities')
+        selector.addEventListener("input", () => {
+//            console.log(this.options[this.selectedIndex].value)
+            console.log(this.value)
+        })
+    }
+    bindEventSelector()
+</script>
+</body>
+</html>
