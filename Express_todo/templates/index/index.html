@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            width: 100%;
+            height: 60px;
+            background-color: grey;
+            position: relative;
+        }
+        .header-caption {
+            color: white;
+            font-size: 15px;
+            font-family: Helvetica, sans-serif;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 1px solid maroon;
+            margin-left: 20px;
+        }
+        /*.header-navbar {*/
+            /*position: relative;*/
+        /*}*/
+        .header-navbar ul {
+            float: right;
+            border: 1px solid yellow;
+
+        }
+        .header-navbar * {
+            color: white;
+        }
+        .header-navbar li {
+            list-style-type: none;
+            display: inline-block;
+            height: 10px;
+            line-height: 10px;
+        }
+        /*a {*/
+            /*text-decoration: none;*/
+        /*}*/
+    </style>
+</head>
+<body>
+    <!--<div class="header">-->
+        <!--<div class="header-caption">-->
+            <!--<h1>当前用户：{{ user.username }}</h1>-->
+        <!--</div>-->
+        <!--<div class="header-navbar">-->
+            <!--<ul>-->
+                <!--<li><a href="/login">登录</a></li>-->
+                <!--<li><a href="/login">注册</a></li>-->
+                <!--<li><a href="/login">注销</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+    <p>当前用户：{{ user.username }}</p>
+    <p>
+        <a href="/todo">todo</a>
+    </p>
+    <ul>
+        {% for u in users %}
+        <li>
+            {{ u.id }}
+            {{ u.username }}
+            {{ u.password }}
+        </li>
+        {% else %}
+        <li>没有注册用户</li>
+        {% endfor %}
+    </ul>
+    <a href="/login">登录</a>
+    <a href="/register">注册</a>
+    <a href="/logout">注销</a>
+</body>
+</html>

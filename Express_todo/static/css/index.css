@@ -1,0 +1,15 @@
+form {
+    /*border: 1px solid grey;*/
+}
+.container {
+    text-align: center;
+}
+.login-form {
+    width: 40%;
+    margin: 0 auto;
+}
+.header {
+    color: #bce8f1;
+    /*border: 1px solid orangered;*/
+    margin-top: 100px;
+}

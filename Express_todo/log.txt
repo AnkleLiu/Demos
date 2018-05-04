@@ -1,0 +1,316 @@
+16:11:17 listening server at http://0.0.0.0:4000
+16:13:22 listening server at http://0.0.0.0:4000
+16:22:17 listening server at http://0.0.0.0:4000
+16:23:56 listening server at http://0.0.0.0:4000
+16:26:21 listening server at http://0.0.0.0:4000
+16:27:38 listening server at http://0.0.0.0:4000
+16:36:12 listening server at http://0.0.0.0:4000
+17:59:19 listening server at http://0.0.0.0:4000
+21:17:13 listening server at http://0.0.0.0:4000
+21:17:24 登录检测: 没有登录,GET
+21:17:31 如果登录了就什么都不做, 继续下一个请求函数
+21:18:25 listening server at http://0.0.0.0:4000
+21:18:39 如果登录了就什么都不做, 继续下一个请求函数
+21:19:26 listening server at http://0.0.0.0:4000
+21:20:24 listening server at http://0.0.0.0:4000
+21:20:47 listening server at http://0.0.0.0:4000
+21:20:49 如果登录了就什么都不做, 继续下一个请求函数
+21:20:58 debug add todo form,[object Object]
+21:22:22 listening server at http://0.0.0.0:4000
+21:22:32 如果登录了就什么都不做, 继续下一个请求函数
+21:22:36 debug add todo form,[object Object]
+21:26:7 listening server at http://0.0.0.0:4000
+21:26:16 如果登录了就什么都不做, 继续下一个请求函数
+21:26:19 debug add todo form,[object Object]
+21:26:19 如果登录了就什么都不做, 继续下一个请求函数
+21:27:1 listening server at http://0.0.0.0:4000
+21:27:6 debug add todo user_id,1
+21:27:6 如果登录了就什么都不做, 继续下一个请求函数
+21:29:57 listening server at http://0.0.0.0:4000
+21:30:1 如果登录了就什么都不做, 继续下一个请求函数
+21:30:29 listening server at http://0.0.0.0:4000
+21:30:33 如果登录了就什么都不做, 继续下一个请求函数
+21:30:58 如果登录了就什么都不做, 继续下一个请求函数
+21:31:11 如果登录了就什么都不做, 继续下一个请求函数
+21:32:26 如果登录了就什么都不做, 继续下一个请求函数
+21:32:37 如果登录了就什么都不做, 继续下一个请求函数
+21:32:49 如果登录了就什么都不做, 继续下一个请求函数
+21:33:4 如果登录了就什么都不做, 继续下一个请求函数
+21:34:29 listening server at http://0.0.0.0:4000
+21:34:41 listening server at http://0.0.0.0:4000
+21:34:43 如果登录了就什么都不做, 继续下一个请求函数
+21:34:43 todoList,{
+  "id": 1,
+  "title": "吃饭了",
+  "completed": false,
+  "ct": 1525248842191,
+  "ut": 1525249668186
+},{
+  "id": 2,
+  "title": "喝水",
+  "completed": false,
+  "ct": 1525267579803,
+  "ut": 1525267579803
+},{
+  "id": 3,
+  "title": "玩游戏",
+  "completed": false,
+  "ct": 1525267626304,
+  "ut": 1525267626304
+},{
+  "id": 4,
+  "title": "编程",
+  "completed": false,
+  "user_id": 1,
+  "ct": 1525267833271,
+  "ut": 1525267833271
+},{
+  "id": 5,
+  "title": "困了",
+  "completed": false,
+  "user_id": 2,
+  "ct": 1525267871641,
+  "ut": 1525267871641
+}
+21:36:37 listening server at http://0.0.0.0:4000
+21:36:41 如果登录了就什么都不做, 继续下一个请求函数
+21:36:41 todoList,{
+  "id": 1,
+  "title": "吃饭了",
+  "completed": false,
+  "ct": 1525248842191,
+  "ut": 1525249668186
+},{
+  "id": 2,
+  "title": "喝水",
+  "completed": false,
+  "ct": 1525267579803,
+  "ut": 1525267579803
+},{
+  "id": 3,
+  "title": "玩游戏",
+  "completed": false,
+  "ct": 1525267626304,
+  "ut": 1525267626304
+},{
+  "id": 4,
+  "title": "编程",
+  "completed": false,
+  "user_id": 1,
+  "ct": 1525267833271,
+  "ut": 1525267833271
+},{
+  "id": 5,
+  "title": "困了",
+  "completed": false,
+  "user_id": 2,
+  "ct": 1525267871641,
+  "ut": 1525267871641
+}
+21:36:41 userTodoList,{
+  "id": 5,
+  "title": "困了",
+  "completed": false,
+  "user_id": 2,
+  "ct": 1525267871641,
+  "ut": 1525267871641
+}
+21:37:13 listening server at http://0.0.0.0:4000
+21:37:15 如果登录了就什么都不做, 继续下一个请求函数
+21:37:31 如果登录了就什么都不做, 继续下一个请求函数
+21:37:36 如果登录了就什么都不做, 继续下一个请求函数
+21:37:44 登录检测: 没有登录,GET
+21:37:50 如果登录了就什么都不做, 继续下一个请求函数
+21:37:53 如果登录了就什么都不做, 继续下一个请求函数
+21:43:46 如果登录了就什么都不做, 继续下一个请求函数
+23:12:43 listening server at http://0.0.0.0:4000
+23:12:51 listening server at http://0.0.0.0:4000
+23:13:0 listening server at http://0.0.0.0:4000
+23:14:0 listening server at http://0.0.0.0:4000
+23:18:41 如果登录了就什么都不做, 继续下一个请求函数
+23:20:23 如果登录了就什么都不做, 继续下一个请求函数
+23:20:40 如果登录了就什么都不做, 继续下一个请求函数
+23:20:48 如果登录了就什么都不做, 继续下一个请求函数
+23:21:35 listening server at http://0.0.0.0:4000
+23:21:42 如果登录了就什么都不做, 继续下一个请求函数
+23:22:26 登录检测: 没有登录,GET
+23:22:54 如果登录了就什么都不做, 继续下一个请求函数
+23:51:10 listening server at http://0.0.0.0:4000
+23:52:2 listening server at http://0.0.0.0:4000
+23:53:23 listening server at http://0.0.0.0:4000
+23:53:25 listening server at http://0.0.0.0:4000
+23:54:15 listening server at http://0.0.0.0:4000
+23:55:32 listening server at http://0.0.0.0:4000
+23:57:58 listening server at http://0.0.0.0:4000
+23:58:32 listening server at http://0.0.0.0:4000
+0:2:7 listening server at http://0.0.0.0:4000
+0:5:35 listening server at http://0.0.0.0:4000
+0:31:59 listening server at http://0.0.0.0:4000
+13:30:43 listening server at http://0.0.0.0:4000
+13:36:22 listening server at http://0.0.0.0:4000
+13:36:40 listening server at http://0.0.0.0:4000
+13:39:58 如果登录了就什么都不做, 继续下一个请求函数
+13:49:26 listening server at http://0.0.0.0:4000
+13:55:50 如果登录了就什么都不做, 继续下一个请求函数
+13:56:34 如果登录了就什么都不做, 继续下一个请求函数
+13:56:38 如果登录了就什么都不做, 继续下一个请求函数
+13:56:45 如果登录了就什么都不做, 继续下一个请求函数
+13:56:46 如果登录了就什么都不做, 继续下一个请求函数
+13:56:47 如果登录了就什么都不做, 继续下一个请求函数
+13:56:48 如果登录了就什么都不做, 继续下一个请求函数
+13:56:50 如果登录了就什么都不做, 继续下一个请求函数
+14:0:7 登录检测: 没有登录,GET
+14:6:1 登录检测: 没有登录,GET
+14:6:6 如果登录了就什么都不做, 继续下一个请求函数
+14:13:17 登录检测: 没有登录,GET
+14:13:53 listening server at http://0.0.0.0:4000
+14:14:0 listening server at http://0.0.0.0:4000
+14:20:25 如果登录了就什么都不做, 继续下一个请求函数
+14:22:0 listening server at http://0.0.0.0:4000
+14:23:18 listening server at http://0.0.0.0:4000
+14:37:10 listening server at http://0.0.0.0:4000
+14:37:15 如果登录了就什么都不做, 继续下一个请求函数
+14:37:22 如果登录了就什么都不做, 继续下一个请求函数
+14:37:25 如果登录了就什么都不做, 继续下一个请求函数
+14:37:27 如果登录了就什么都不做, 继续下一个请求函数
+14:37:32 如果登录了就什么都不做, 继续下一个请求函数
+14:37:38 如果登录了就什么都不做, 继续下一个请求函数
+14:44:5 listening server at http://0.0.0.0:4000
+14:46:53 listening server at http://0.0.0.0:4000
+14:46:56 listening server at http://0.0.0.0:4000
+14:49:35 listening server at http://0.0.0.0:4000
+14:49:58 listening server at http://0.0.0.0:4000
+14:51:50 listening server at http://0.0.0.0:4000
+14:52:19 listening server at http://0.0.0.0:4000
+14:52:28 listening server at http://0.0.0.0:4000
+14:52:43 listening server at http://0.0.0.0:4000
+14:53:36 listening server at http://0.0.0.0:4000
+14:54:32 listening server at http://0.0.0.0:4000
+14:54:54 listening server at http://0.0.0.0:4000
+14:55:32 listening server at http://0.0.0.0:4000
+14:56:16 listening server at http://0.0.0.0:4000
+14:56:39 listening server at http://0.0.0.0:4000
+14:56:49 listening server at http://0.0.0.0:4000
+14:57:2 listening server at http://0.0.0.0:4000
+14:57:19 listening server at http://0.0.0.0:4000
+14:57:35 listening server at http://0.0.0.0:4000
+14:58:0 listening server at http://0.0.0.0:4000
+15:1:30 listening server at http://0.0.0.0:4000
+15:2:56 listening server at http://0.0.0.0:4000
+15:3:28 listening server at http://0.0.0.0:4000
+15:3:47 listening server at http://0.0.0.0:4000
+15:4:23 listening server at http://0.0.0.0:4000
+15:4:34 listening server at http://0.0.0.0:4000
+15:4:48 listening server at http://0.0.0.0:4000
+15:7:49 listening server at http://0.0.0.0:4000
+15:13:21 listening server at http://0.0.0.0:4000
+15:15:34 listening server at http://0.0.0.0:4000
+15:19:37 listening server at http://0.0.0.0:4000
+15:22:26 listening server at http://0.0.0.0:4000
+15:26:11 listening server at http://0.0.0.0:4000
+15:27:3 listening server at http://0.0.0.0:4000
+15:38:6 listening server at http://0.0.0.0:4000
+15:40:53 listening server at http://0.0.0.0:4000
+15:41:6 listening server at http://0.0.0.0:4000
+15:41:54 listening server at http://0.0.0.0:4000
+15:42:47 listening server at http://0.0.0.0:4000
+15:44:54 listening server at http://0.0.0.0:4000
+15:46:48 listening server at http://0.0.0.0:4000
+15:49:37 listening server at http://0.0.0.0:4000
+15:50:57 listening server at http://0.0.0.0:4000
+15:52:1 listening server at http://0.0.0.0:4000
+15:53:18 listening server at http://0.0.0.0:4000
+15:53:51 listening server at http://0.0.0.0:4000
+15:54:26 listening server at http://0.0.0.0:4000
+15:55:41 listening server at http://0.0.0.0:4000
+15:56:17 listening server at http://0.0.0.0:4000
+15:57:33 listening server at http://0.0.0.0:4000
+15:58:18 listening server at http://0.0.0.0:4000
+16:6:11 listening server at http://0.0.0.0:4000
+16:7:37 listening server at http://0.0.0.0:4000
+16:8:10 listening server at http://0.0.0.0:4000
+16:9:48 listening server at http://0.0.0.0:4000
+16:11:51 listening server at http://0.0.0.0:4000
+16:12:4 listening server at http://0.0.0.0:4000
+16:13:7 listening server at http://0.0.0.0:4000
+16:16:4 listening server at http://0.0.0.0:4000
+16:17:24 listening server at http://0.0.0.0:4000
+16:24:29 listening server at http://0.0.0.0:4000
+16:24:46 listening server at http://0.0.0.0:4000
+16:29:22 listening server at http://0.0.0.0:4000
+16:30:20 listening server at http://0.0.0.0:4000
+16:33:3 listening server at http://0.0.0.0:4000
+16:41:27 listening server at http://0.0.0.0:4000
+16:42:3 listening server at http://0.0.0.0:4000
+16:42:28 登录检测: 没有登录,GET
+16:57:2 listening server at http://0.0.0.0:4000
+16:58:48 listening server at http://0.0.0.0:4000
+17:1:20 listening server at http://0.0.0.0:4000
+17:1:51 listening server at http://0.0.0.0:4000
+17:2:16 listening server at http://0.0.0.0:4000
+17:2:23 pages,3
+17:3:30 listening server at http://0.0.0.0:4000
+17:3:33 listening server at http://0.0.0.0:4000
+17:3:35 page,1
+17:3:35 todos,1,2,3,4
+17:4:6 listening server at http://0.0.0.0:4000
+17:4:8 page,1
+17:4:8 todos,1,2,3,4
+17:4:26 listening server at http://0.0.0.0:4000
+17:4:27 page,1
+17:4:27 todos,{
+  "id": 1,
+  "title": "吃饭",
+  "completed": false,
+  "user_id": 2,
+  "ct": 1525268256266,
+  "ut": 1525268256266
+},{
+  "id": 2,
+  "title": "喝水",
+  "completed": false,
+  "user_id": 1,
+  "ct": 1525268273817,
+  "ut": 1525268273817
+}
+17:4:29 page,3
+17:4:29 todos,{
+  "id": 5,
+  "title": "投篮",
+  "completed": false,
+  "user_id": 1,
+  "ct": 1525329447944,
+  "ut": 1525329447944
+},{
+  "id": 6,
+  "title": "打豆豆",
+  "completed": false,
+  "user_id": 1,
+  "ct": 1525329452308,
+  "ut": 1525329452308
+}
+17:4:47 listening server at http://0.0.0.0:4000
+17:5:14 listening server at http://0.0.0.0:4000
+21:10:36 listening server at http://0.0.0.0:4000
+21:10:53 登录检测: 没有登录,GET
+21:11:4 如果登录了就什么都不做, 继续下一个请求函数
+21:12:14 listening server at http://0.0.0.0:4000
+21:12:19 登录检测: 没有登录,GET
+21:12:19 original url,/todo
+21:12:19 next url,/login?next_url=/todo
+21:15:18 listening server at http://0.0.0.0:4000
+21:15:21 登录检测: 没有登录,GET
+21:17:21 listening server at http://0.0.0.0:4000
+21:17:25 登录检测: 没有登录,GET
+21:17:30 如果登录了就什么都不做, 继续下一个请求函数
+21:20:28 如果登录了就什么都不做, 继续下一个请求函数
+21:23:27 listening server at http://0.0.0.0:4000
+21:23:29 如果登录了就什么都不做, 继续下一个请求函数
+21:23:45 如果登录了就什么都不做, 继续下一个请求函数
+21:23:55 如果登录了就什么都不做, 继续下一个请求函数
+19:59:54 listening server at http://0.0.0.0:4000
+20:1:28 如果登录了就什么都不做, 继续下一个请求函数
+20:1:33 如果登录了就什么都不做, 继续下一个请求函数
+20:1:35 如果登录了就什么都不做, 继续下一个请求函数
+20:1:43 如果登录了就什么都不做, 继续下一个请求函数
+20:1:45 如果登录了就什么都不做, 继续下一个请求函数
