@@ -19,7 +19,7 @@
 
 ## Markdown Editor
 - 原生 Javascript，借助 codemirror remarkable 实现。*切换主题、实时预览、自动补全。* 
-![image](https://github.com/AnkleLiu/Demos/blob/master/Markdown-Editor/markdown.gif）
+![image](https://github.com/AnkleLiu/Demos/blob/master/Markdown-Editor/markdown.gif)
 
 ## 论坛程序
 *Express 实现。登陆、注册、注销、上传头像、发表帖子、发表回复、管理板块、统计浏览数 等。*
