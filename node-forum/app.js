@@ -81,7 +81,7 @@ const run = (port = 4000, host = '') => {
 }
 
 if (require.main === module) {
-    const port = 2444
+    const port = process.env.PORT || 2444
     const host = '0.0.0.0'
     run(port, host)
 }
