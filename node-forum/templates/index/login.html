@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+    <link rel="stylesheet" href="static/css/pure-min.css">
+    <style media="screen">
+        .login-form {
+            /* border: 1px solid red; */
+            text-align: center;
+            width: 100%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    {# 下面这个是显示由 adminRequired 函数强制跳转到登陆页面时候的消息 #}
+    {% if (flash | length) %}
+    <p> {{ flash.message }} </p>
+    {% endif %}
+    <div class="login-form">
+        <div class="heading">
+            <h1>登陆页面</h1>
+        </div>
+        <form action="/login" method="post" class="pure-form pure-form-aligned">
+            <input type="hidden" name="next_url" value="{{ next_url }}">
+            <fieldset>
+                <div class="pure-control-group">
+                    <label for="name">用户名</label>
+                    <input id="name" type="text" placeholder="用户名" name="username">
+                </div>
+                <div class="pure-control-group">
+                    <label for="password">密码</label>
+                    <input id="password" type="password" placeholder="密码" name="password">
+                </div>
+                <div class="pure-controls">
+                    <button type="submit" class="pure-button pure-button-primary">进入</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <!-- <form action="/login" method="post">
+        <input type="hidden" name="next_url" value="{{ next_url }}">
+        <p>
+            <input type="text" name="username" placeholder="username">
+        </p>
+        <p>
+            <input type="text" name="password" placeholder="password">
+        </p>
+        <p>
+            <button>登录</button>
+        </p>
+    </form> -->
+</body>
+</html>

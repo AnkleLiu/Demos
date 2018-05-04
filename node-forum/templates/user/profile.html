@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>User profile</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        .avatar {
+            max-width: 100px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .class-div-main {
+            width: 800px;
+            height: 100%;
+            margin: 0 auto;
+            /*border: 1px solid red;*/
+            text-align: center;
+            background-color: #bce8f1;
+            top: 50%;
+            transform: translateY(50%);
+        }
+        .class-div-profile {
+            float: right;
+            margin-right: 300px;
+            /*border: 1px solid cornflowerblue;*/
+        }
+        .class-div-avatar, .class-div-upload {
+            float: left;
+            margin-top: 10px;
+        }
+        .clear {
+            clear: both;
+        }
+        button#submit-button {
+            float: left;
+        }
+        #id-topic {
+            float: left;
+        }
+        .inner-profile {
+            margin-left: 0;
+            padding-left: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="class-div-main">
+        <div class="class-div-profile">
+            <h3 class="inner-profile">用户资料</h3>
+            <p class="inner-profile">用户id：{{ user.id }}</p>
+            <p class="inner-profile">用户名：{{ user.username }}</p>
+            <!--<p>{{ user.password }}</p>-->
+        </div>
+        <div class="class-div-avatar">
+            <img src="/user/avatar/{{ user.avatar }}" alt="用户头像" class="avatar">
+        </div>
+        <div class="class-div-upload">
+            <h4 id="id-topic">上传头像</h4>
+            <!--如果用 form 表单上传文件, 一定要指定 enctype="multipart/form-data"-->
+            <form action="/user/upload/avatar" method="post" enctype="multipart/form-data">
+                <p>
+                    <input id="upload-file" type="file" name="avatar" required>
+                </p>
+                <button id="submit-button">上传</button>
+            </form>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <script src="/static/js/upload.js"></script>
+</body>
+</html>

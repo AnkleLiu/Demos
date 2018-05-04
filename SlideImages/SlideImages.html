@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Slide Images</title>
+        <style>
+            .slide {
+                width: 80%;
+                position: relative;
+                border: 1px solid red;
+                text-align: center;
+                margin: 0 auto;
+            }
+            .slide-button {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                height: 50px;
+                margin-right: 50px;
+                width: 50px;
+                height: 50px;
+                border-radius: 25px;
+                border-style: none;
+                /*display: none;*/
+            }
+            .btnRight {
+                right: 236px;
+            }
+            .slide-imgs {
+                display: none;
+            }
+            .active {
+                display: inline-block;
+            }
+            .slide-indicators {
+                /* list-style: none; */
+                position: absolute;
+                bottom: 10px;
+                width: 60px;
+                left: 480px;
+                display: inline-block;
+                /* margin: 0 auto; */
+            }
+            .slide-indi {
+                display: inline-block;
+                /* float: left; */
+                width: 10px;
+                height: 10px;
+                line-height: 20px;
+                text-align: center;
+                border-radius: 50px;
+                background-color: blue;
+                /* margin-right: 10px; */
+            }
+            .white {
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="slide" data-imgs=3 data-active=0>
+            <button class="slide-button left" data-offset="-1">&#10094;</button>
+            <img id=id-image-0 src="./imgs/1.jpg" class="slide-imgs active" alt="spider-man">
+            <img id=id-image-1 src="./imgs/2.jpg" class="slide-imgs" alt="wolverine">
+            <img id=id-image-2 src="./imgs/3.jpg" class="slide-imgs" alt="flash">
+            <!-- <button class="slide-button left" data-offset="-1">&#10094;上一张</button> -->
+            <button class="slide-button right btnRight" data-offset="1">&#10095;</button>
+            <div class="slide-indicators">
+                <div id="id-indi-0" class="slide-indi white"></div>
+                <div id="id-indi-1" class="slide-indi"></div>
+                <div id="id-indi-2" class="slide-indi"></div>
+            </div>
+        </div>
+        <script src="./js/util.js"></script>
+        <script src="./js/slideimgs.js"></script>
+    </body>
+</html>

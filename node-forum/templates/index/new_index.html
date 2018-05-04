@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Another 首页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #e1e1e1;
+        }
+        a {
+            text-decoration: none;
+        }
+        ul {
+            list-style-type: none;
+        }
+        .nav {
+            /* list-style-type: none; */
+            /*border-radius: 25px;*/
+            height: 60px;
+            overflow: auto;
+            position: relative;
+            background-color: #333333;
+            color: white;
+        }
+        .nav *{
+             top: 50%;
+             transform: translateY(80%);
+        }
+        .nav .nav-right {
+            float: right;
+            margin-right: 20px;
+            left: 200px;
+        }
+        .nav .nav-left {
+            float: left;
+            margin-left: 20px;
+        }
+        .nav-right a:link, .nav-right a:visited {
+            color: white;
+        }
+        .class-div-main {
+            /* border: 1px solid red; */
+            width: 90%;
+            height: 100%;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        .class-div-topic {
+            /* border: 1px solid lightblue; */
+            width: 68%;
+            float: left;
+        }
+        .class-div-side {
+            /* border: 1px solid yellow; */
+            width: 30%;
+            float: right;
+        }
+        .class-div-main::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .class-div-header {
+            background-color: #f6f6f6;
+            padding: 10px;
+        }
+        .ul-board-list {
+            /* list-style-type: none; */
+            background-color: #f6f6f6;
+            /* margin: 0 0 10px 0; */
+        }
+        .ul-board-list li {
+            display: inline-block;
+            /* border: 1px solid black; */
+            margin: 0 10px;
+        }
+        .ul-board-list li:hover {
+            cursor: pointer;
+            color: tomato;
+        }
+        .ul-board-list a {
+            color: tomato;
+        }
+        .class-current-board a {
+            color: #5bc0de;
+            background-color: tomato;
+        }
+        .ul-topic-list {
+            background-color: white;
+        }
+        .ul-topic-list li {
+            background-color: white;
+            padding: 10px 0 10px 10px;
+            border-top: 1px solid #f0f0f0;
+            overflow: hidden;
+        }
+        .ul-topic-list li a {
+            color: #778087;
+        }
+        .ul-topic-list li:hover {
+            text-decoration: underline;
+            cursor: pointer;
+            background-color: lightblue;
+        }
+        /* 分页部分 */
+        .class-div-pagination {
+            background-color: white;
+        }
+        .class-div-pagination::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .ul-pagination {
+            border-top: 1px solid #f0f0f0;
+            padding-left: 10px;
+        }
+        .ul-pagination li{
+            display: inline-block;
+            border: 1px solid white;
+            margin: 10px 0;
+            float: left;
+            padding: 10px;
+            color: #778087;
+            border-left: 1px solid #ddd;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            width: 10px;
+            height: 10px;
+            line-height: 10px;
+        }
+        .ul-pagination li:last-child {
+            border-right: 1px solid #ddd;
+        }
+        .ul-pagination li:hover {
+            cursor: pointer;
+            background-color: lightblue;
+        }
+        /* side */
+        .class-div-side {
+            background-color: white;
+            border-radius: 4px;
+        }
+        .side-upper {
+            padding: 10px;
+            line-height: 1.2em;
+        }
+        .span-button {
+            padding: 0 5px;
+            color: #778087;
+        }
+        .side-middle {
+            margin-top: 10px;
+            background-color: white;
+            /* border: 1px solid red; */
+        }
+        .side-middle-header {
+            background-color:#f6f6f6;
+        }
+        .side-middle-header p {
+            padding: 10px;
+            color: #444;
+        }
+        .side-middle-content ul {
+            padding: 5px 0 25px 10px;
+        }
+        .side-middle-content ul li {
+            padding: 5px 0;
+        }
+        .side-middle-content ul li a {
+            color: #778087;
+        }
+        /*  */
+        .side-bottom {
+            margin: 10px 0;
+            background-color: white;
+            padding: 10px;
+            /* border: 1px solid yellow; */
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li class="nav-left">当前用户：{{ user.username }} 欢迎您！</li>
+        <li class="nav-right"><a href="/logout">注销</a></li>
+        <li class="nav-right"><a href="/login">登陆</a></li>
+        <li class="nav-right"><a href="/register">注册</a></li>
+        <li class="nav-right"><a href="/topic">帖子</a></li>
+        <li class="nav-right"><a href="/board">编辑板块</a></li>
+        <li class="nav-right"><a href="/user/profile/{{ user.id }}">个人资料</a></li>
+        <li class="nav-right"><a href="/">首页</a></li>
+    </ul>
+    <div class="class-div-main">
+        <div class="class-div-topic">
+            <div class="class-div-header">
+                <ul class="ul-board-list">
+                    <li class="class-current-board"><a href="/">全部</a></li>
+                    {% for b in boards %}
+                        {% if b.id == board_id %}
+                            {% set cls = 'class-current-board' %}
+                        {% else %}
+                            {% set cls = '' %}
+                        {% endif %}
+                    <li class="{{ cls }}"><a href="/?board_id={{ b.id }}">{{ b.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="class-div-topics">
+                <ul class="ul-topic-list">
+                    {% for t in topics %}
+                    <li><a href="/topic/detail/{{ t.id }}">{{ t.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="class-div-pagination">
+                <ul class="ul-pagination">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+        </div>
+        <div class="class-div-side">
+            <div class="side-upper">
+                <p>欢迎光临</p>
+                <p>XXXXXXXXXXX专业中文社区</p>
+                <br>
+                <p>您可以<a href="/login" class="span-button">登陆</a>或者<a href="/register" class="span-button">注册</a></p>
+                <p>也可以随便看看</p>
+            </div>
+            <div class="side-middle">
+                <div class="side-middle-header">
+                    <p>无人回复的话题</p>
+                </div>
+                <div class="side-middle-content">
+                    <ul>
+                        {% for t in topicsWithNoReply %}
+                            <li><a href="#">{{ t.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="side-bottom">
+                友情链接
+            </div>
+        </div>
+    </div>
+    <!-- <script>
+        const e = (sel) => document.querySelector(sel)
+        var removeClassAll = function(className) {
+            var selector = '.' + className
+            var elements = document.querySelectorAll(selector)
+            for (var i = 0; i < elements.length; i++) {
+                var e = elements[i]
+                e.classList.remove(className)
+            }
+        }
+        const bindEventClickBoard = () => {
+            const boardUl = e('.ul-board-list')
+            boardUl.addEventListener('click', (e) => {
+                if (e.target.className === '') {
+                    removeClassAll('class-current-board')
+                    e.target.classList.add('class-current-board')
+                }
+            })
+        }
+        const main = () => {
+            bindEventClickBoard()
+        }
+        main()
+    </script> -->
+</body>
+</html>

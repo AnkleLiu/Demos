@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>md</title>
+        <link rel="stylesheet" href="./codemirror/lib/codemirror.css">
+        <link rel="stylesheet" href="./codemirror/theme/neo.css">
+        <link rel="stylesheet" href="./codemirror/theme/icecoder.css">
+        <link rel="stylesheet" href="./codemirror/theme/railscasts.css">
+        <link rel="stylesheet" href="./codemirror/theme/rubyblue.css">
+        <link rel="stylesheet" href="./codemirror/theme/zenburn.css">
+        <link rel="stylesheet" href="./codemirror/theme/yeti.css">
+        <link rel="stylesheet" href="./codemirror/theme/twilight.css">
+        <link rel="stylesheet" href="./codemirror/theme/colorforth.css">
+        <link rel="stylesheet" href="./codemirror/addon/hint/show-hint.css">
+        <link rel="stylesheet" href="./codemirror/addon/display/fullscreen.css">
+        <script src="./codemirror/lib/codemirror.js"></script>
+        <script src="./codemirror/mode/javascript/javascript.js"></script>
+        <script src="./codemirror/mode/css/css.js"></script>
+        <script src="./codemirror/addon/hint/css-hint.js"></script>
+        <script src="./codemirror/addon/hint/javascript-hint.js"></script>
+        <script src="./codemirror/addon/hint/anyword-hint.js"></script>
+        <script src="./codemirror/addon/hint/show-hint.js"></script>
+        <script src="./codemirror/addon/display/fullscreen.js"></script>
+        <script src="http://cdn.bootcss.com/remarkable/1.7.1/remarkable.js"></script>
+        <style>
+            body {
+                background-color: #eee;
+            }
+            .content {
+                margin-top: 30px;
+                border: 1px solid bule;
+            }
+            #id-content {
+                border: 1px solid lightblue;
+                float: right;
+                width: 550px;
+                height: 450px;
+                display: inline;
+                padding-right: 20px;
+                background-color: white;
+                border:2px dashed #CCC;
+            }
+            #id-source {
+                float: left;
+                width: 550px;
+                height: 450px;
+                display: inline;
+                margin-right: 20px;
+                border: 1px solid yellow;
+            }
+            .CodeMirror { height: 100%; }
+            .options {
+                height: 60px;
+            }
+        </style>
+    </head>
+    <body>
+        <fieldset class="options">
+            <label for="id-lable-theme">选择主题：</label>
+            <select class="theme" name="theme" id="id-select-theme">
+                <option value="neo">neo</option>
+                <option value="icecoder">icecoder</option>
+                <option value="railscasts">railscasts</option>
+                <option value="rubyblue">rubyblue</option>
+                <option value="zenburn">zenburn</option>
+                <option value="yeti">yeti</option>
+                <option value="twilight">twilight</option>
+                <option value="colorforth">colorforth</option>
+            </select>
+        </fieldset>
+        <div class="content">
+            <div class="codemirror" id="id-source"></div>
+            <div id="id-content"></div>
+        </div>
+        <script>
+            // 找不到 CM 获取实例的方法，只能用一个全局变量了
+            var editors = []
+            var changeTheme = function() {
+                var select = document.querySelector('#id-select-theme')
+                select.addEventListener('change', function(event) {
+                    var editor = editors[0]
+                    var theme = event.target.value
+                    editor.setOption('theme', theme)
+                })
+            }
+            var parse = function(html) {
+                var e = (sel) => document.querySelector(sel)
+                var md = new Remarkable()
+                e('#id-content').innerHTML = md.render(html)
+            }
+            var initMd = function() {
+                var editor = CodeMirror(document.querySelector('.codemirror'), {
+                    value: "#### 一个 markdown 编辑器\n- Ctrl + I 自动补全\n- F11 全屏\n- 切换主题\n",
+                    lineNumbers: true,
+                    mode: "text/html",
+                    matchBrackets: true,
+                    theme: 'neo',
+                    tabsize: 4,
+                    // extraKeys: {"Ctrl-Enter": "autocomplete"},
+                    // extraKeys: {
+                    //     "Ctrl-I": "autocomplete"
+                    // },
+                    extraKeys: {
+                        "Ctrl-I": "autocomplete",
+                        "F11": function(cm) {
+                          cm.setOption("fullScreen", !cm.getOption("fullScreen"))
+                        },
+                        "Esc": function(cm) {
+                          if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false)
+                        }
+                    },
+                })
+                editor.on('change', function () {
+                    html = editor.getValue();
+                    parse(html)
+                })
+                parse(editor.getValue())
+                editors.push(editor)
+            }
+            var __main = function() {
+                initMd()
+                changeTheme()
+            }
+            __main()
+        </script>
+    </body>
+</html>
