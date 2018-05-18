@@ -1,19 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+const list = [
+    {
+        title: 'React',
+        url: 'https://google.com',
+        author: 'Someone',
+        num_comments: 3,
+        points: 4,
+        objectID: 0,
+    },
+    {
+        title: 'Redux',
+        url: 'z.cn',
+        author: 'who',
+        num_comments: 4,
+        points: 6,
+        objectID: 1,
+    }
+]
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        <div className="App">
+            {
+                list.map(item => (
+                    <div key={item.objectID}>
+                        <span>
+                            <a href={item.url}>{item.url}</a>
+                        </span>
+                        <span>{item.author}</span>
+                        <span>{item.num_comments}</span>
+                        <span>{item.points}</span>
+                    </div>
+                ))
+            }
+        </div>
     );
   }
 }
