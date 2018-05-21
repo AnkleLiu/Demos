@@ -30,9 +30,10 @@ function isSearched(searchTerm) {
 
 class Search extends Component {
     render() {
-        const { value, onChange } = this.props
+        const { value, onChange, children } = this.props
         return (
             <form>
+                { children }
                 <input
                     type="text"
                     value={value}
@@ -62,16 +63,34 @@ class Table extends Component {
                             -
                             <span>{item.points}</span>
                             <span>
-                                <button
-                                    type="button"
+                                <Button
                                     onClick={() => onDismiss(item.objectID)}>
                                     Dismiss
-                                </button>
+                                </Button>
                             </span>
                         </div>
                     ))
                 }
             </div>
+        )
+    }
+}
+
+class Button extends Component {
+    render() {
+        const {
+            onClick,
+            className = '',
+            children,
+        } = this.props
+        return (
+            <button
+                onClick={onClick}
+                className={className}
+                type="button"
+            >
+                { children }
+            </button>
         )
     }
 }
@@ -99,19 +118,21 @@ class App extends Component {
 
   render() {
       const { searchTerm, list } = this.state
-    return (
-        <div className="App">
-            <Search
-                value={searchTerm}
-                onChange={this.onSearchChange}
-            />
-            <Table
-                list={list}
-                pattern={searchTerm}
-                onDismiss={this.onDismiss}
-            />
-        </div>
-    );
+        return (
+            <div className="App">
+                <Search
+                    value={searchTerm}
+                    onChange={this.onSearchChange}
+                >
+                    Search
+                </Search>
+                <Table
+                    list={list}
+                    pattern={searchTerm}
+                    onDismiss={this.onDismiss}
+                />
+            </div>
+        );
   }
 }
 
