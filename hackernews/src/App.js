@@ -26,6 +26,13 @@ class App extends Component {
         this.state = {
             list: list,
         }
+        this.onDismiss = this.onDismiss.bind(this)
+    }
+
+    onDismiss(id) {
+        // filter 返回新列表
+        const updatedList = this.state.list.filter(item => item.objectID !== id)
+        this.setState({ list: updatedList })
     }
 
   render() {
@@ -40,6 +47,13 @@ class App extends Component {
                         <span>{item.author}</span>
                         <span>{item.num_comments}</span>
                         <span>{item.points}</span>
+                        <span>
+                            <button
+                                type="button"
+                                onClick={() => this.onDismiss(item.objectID)}>
+                                Dismiss
+                            </button>
+                        </span>
                     </div>
                 ))
             }
