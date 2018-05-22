@@ -39,7 +39,6 @@ const Search = ({ value, onChange, onSubmit, children }) =>
     // const { value, onChange, children } = this.props
     // return (
     <form onSubmit={onSubmit}>
-
         <input
             type="text"
             value={value}
@@ -85,7 +84,7 @@ const Button = ({onClick, className='', children}) =>
     <button
         onClick={onClick}
         className={className}
-        type="button"
+        type="submit"
     >
         { children }
     </button>
@@ -110,7 +109,7 @@ class App extends Component {
     }
 
     fetchSearchTopStories(searchTerm) {
-        fetch(`${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${DEFAULT_QUERY}`)
+        fetch(`${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${searchTerm}`)
             .then(response => response.json())
             .then(result => this.setSearchTopStories(result))
             .catch(e => e)
@@ -120,7 +119,6 @@ class App extends Component {
         const { searchTerm } = this.state
         this.fetchSearchTopStories(searchTerm)
         event.preventDefault()
-        console.log('on search submit');
     }
 
     componentDidMount() {
