@@ -2,30 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 
 const DEFAULT_QUERY = 'redux'
+const DEFAULT_HPP = '100'
+
 const PATH_BASE = 'https://hn.algolia.com/api/v1'
 const PATH_SEARCH = '/search'
 const PARAM_SEARCH = 'query='
-
-// const url = `${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${DEFAULT_QUERY}`
-
-// const list = [
-//     {
-//         title: 'React',
-//         url: 'https://google.com',
-//         author: 'Someone',
-//         num_comments: 3,
-//         points: 4,
-//         objectID: 0,
-//     },
-//     {
-//         title: 'Redux',
-//         url: 'z.cn',
-//         author: 'who',
-//         num_comments: 4,
-//         points: 6,
-//         objectID: 1,
-//     }
-// ]
+const PARAM_PAGE = 'page='
+const PARAM_HPP = 'hitsPerPage='
 
 // function isSearched(searchTerm) {
 //     return function(item) {
@@ -36,8 +19,6 @@ const PARAM_SEARCH = 'query='
 // const isSearched = searchTerm => item => item.title.toLowerCase().includes(searchTerm.toLowerCase())
 
 const Search = ({ value, onChange, onSubmit, children }) =>
-    // const { value, onChange, children } = this.props
-    // return (
     <form onSubmit={onSubmit}>
         <input
             type="text"
@@ -47,40 +28,35 @@ const Search = ({ value, onChange, onSubmit, children }) =>
             {children}
         </button>
     </form>
-    // )
 
-
-const Table = ({ list, onDismiss }) =>
-    <div className="table">
-        {
-            list.map(item => (
-                <div key={item.objectID} className="table-row">
-                    <span style={{ width: '40%' }}>
-                        <a href={item.url}>{item.url}</a>
-                    </span>
-                    <span style={{ width: '30%' }}>{item.title}</span>
-                    <span style={{ width: '30%' }}>{item.author}</span>
-                    <span style={{ width: '10%' }}>{item.num_comments}</span>
-                    <span style={{ width: '10%' }}>{item.points}</span>
-                    <span style={{ width: '10%' }}>
-                        <Button
-                            className="button-inline"
-                            onClick={() => onDismiss(item.objectID)}>
-                            Dismiss
-                        </Button>
-                    </span>
-                </div>
-            ))
-        }
-    </div>
+const Table = ({ list, onDismiss }) => {
+    return (
+        <div className="table">
+            {
+                list.map(item => (
+                    <div key={item.objectID} className="table-row">
+                        <span style={{ width: '40%' }}>
+                            <a href={item.url}>{item.url}</a>
+                        </span>
+                        <span style={{ width: '30%' }}>{item.title}</span>
+                        <span style={{ width: '30%' }}>{item.author}</span>
+                        <span style={{ width: '10%' }}>{item.num_comments}</span>
+                        <span style={{ width: '10%' }}>{item.points}</span>
+                        <span style={{ width: '10%' }}>
+                            <Button
+                                className="button-inline"
+                                onClick={() => onDismiss(item.objectID)}>
+                                Dismiss
+                            </Button>
+                        </span>
+                    </div>
+                ))
+            }
+        </div>
+    )
+}
 
 const Button = ({onClick, className='', children}) =>
-    // const {
-    //     onClick,
-    //     className = '',
-    //     children,
-    // } = this.props
-    // return (
     <button
         onClick={onClick}
         className={className}
@@ -88,7 +64,6 @@ const Button = ({onClick, className='', children}) =>
     >
         { children }
     </button>
-    // )
 
 class App extends Component {
     constructor(props) {
@@ -105,11 +80,19 @@ class App extends Component {
     }
 
     setSearchTopStories(result) {
-        this.setState({ result })
+        const { hits, page } = result
+        const oldHits = page !== 0 ? this.state.result.hits : []
+        const updatedHits = [
+            ...oldHits,
+            ...hits,
+        ]
+        this.setState({
+            result: { hits: updatedHits, page}
+        })
     }
 
-    fetchSearchTopStories(searchTerm) {
-        fetch(`${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${searchTerm}`)
+    fetchSearchTopStories(searchTerm, page=0) {
+        fetch(`${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${searchTerm}&${PARAM_PAGE}${page}&${PARAM_HPP}${DEFAULT_HPP}`)
             .then(response => response.json())
             .then(result => this.setSearchTopStories(result))
             .catch(e => e)
@@ -141,12 +124,11 @@ class App extends Component {
 
   render() {
       const { searchTerm, result } = this.state
-
+      const page = (result && result.page) || 0
       if (!result) {
           return null
       }
-      // console.log(result);
-        return (
+      return (
             <div className="page">
                 <div className="interactions">
                     <Search
@@ -164,6 +146,11 @@ class App extends Component {
                         onDismiss={this.onDismiss}
                     />
                 }
+                <div className="interactions">
+                    <Button onClick={() => this.fetchSearchTopStories(searchTerm, page + 1)}>
+                        More
+                    </Button>
+                </div>
             </div>
         );
   }
