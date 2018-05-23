@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
+import Table from './Table/index'
+import Button from './Button/index'
+import Search from './Search/index'
 import './App.css';
 
-const DEFAULT_QUERY = 'redux'
-const DEFAULT_HPP = '100'
-
-const PATH_BASE = 'https://hn.algolia.com/api/v1'
-const PATH_SEARCH = '/search'
-const PARAM_SEARCH = 'query='
-const PARAM_PAGE = 'page='
-const PARAM_HPP = 'hitsPerPage='
+import {
+    DEFAULT_QUERY,
+    DEFAULT_HPP,
+    PATH_BASE,
+    PATH_SEARCH,
+    PARAM_SEARCH,
+    PARAM_PAGE,
+    PARAM_HPP,
+} from './constants/index.js'
 
 // function isSearched(searchTerm) {
 //     return function(item) {
@@ -17,53 +21,6 @@ const PARAM_HPP = 'hitsPerPage='
 // }
 
 // const isSearched = searchTerm => item => item.title.toLowerCase().includes(searchTerm.toLowerCase())
-
-const Search = ({ value, onChange, onSubmit, children }) =>
-    <form onSubmit={onSubmit}>
-        <input
-            type="text"
-            value={value}
-            onChange={onChange} />
-        <button type="submit">
-            {children}
-        </button>
-    </form>
-
-const Table = ({ list, onDismiss }) => {
-    return (
-        <div className="table">
-            {
-                list.map(item => (
-                    <div key={item.objectID} className="table-row">
-                        <span style={{ width: '40%' }}>
-                            <a href={item.url}>{item.url}</a>
-                        </span>
-                        <span style={{ width: '30%' }}>{item.title}</span>
-                        <span style={{ width: '30%' }}>{item.author}</span>
-                        <span style={{ width: '10%' }}>{item.num_comments}</span>
-                        <span style={{ width: '10%' }}>{item.points}</span>
-                        <span style={{ width: '10%' }}>
-                            <Button
-                                className="button-inline"
-                                onClick={() => onDismiss(item.objectID)}>
-                                Dismiss
-                            </Button>
-                        </span>
-                    </div>
-                ))
-            }
-        </div>
-    )
-}
-
-const Button = ({onClick, className='', children}) =>
-    <button
-        onClick={onClick}
-        className={className}
-        type="submit"
-    >
-        { children }
-    </button>
 
 class App extends Component {
     constructor(props) {
