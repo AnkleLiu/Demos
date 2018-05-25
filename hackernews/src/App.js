@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Table from './Table/index'
 import Button from './Button/index'
 import Search from './Search/index'
-import { sortBy } from 'lodash'
 import './App.css';
 
 import {
@@ -14,14 +13,6 @@ import {
     PARAM_PAGE,
     PARAM_HPP,
 } from './constants/index.js'
-
-export const SORTS = {
-    NONE: list => list,
-    TITLE: list => sortBy(list, 'title'),
-    AUTHOR: list => sortBy(list, 'author'),
-    COMMENTS: list => sortBy(list, 'num_comments').reverse(),
-    POINTS: list => sortBy(list, 'points').reverse()
-}
 
 // function isSearched(searchTerm) {
 //     return function(item) {
@@ -41,14 +32,11 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            // result: null,
             results: null,
             searchKey: '',
             searchTerm: DEFAULT_QUERY,
             error: null,
             isLoading: false,
-            sortKey: 'NONE',
-            isSortReverse: false,
         }
         this.onSearchSubmit = this.onSearchSubmit.bind(this)
         this.setSearchTopStories = this.setSearchTopStories.bind(this)
@@ -56,7 +44,6 @@ class App extends Component {
         this.onDismiss = this.onDismiss.bind(this)
         this.onSearchChange = this.onSearchChange.bind(this)
         this.needsToSearchTopStories = this.needsToSearchTopStories.bind(this)
-        this.onSort = this.onSort.bind(this)
     }
 
     setSearchTopStories(result) {
@@ -120,11 +107,6 @@ class App extends Component {
 
     onSearchChange(event) {
         this.setState({ searchTerm: event.target.value })
-    }
-
-    onSort(sortKey) {
-        const isSortReverse = this.state.sortKey === sortKey && !this.state.isSortReverse
-        this.setState({ sortKey, isSortReverse })
     }
 
   render() {
