@@ -13,6 +13,7 @@ const Table = ({ list, onDismiss, sortKey, onSort, isSortReverse }) => {
                     <Sort
                         sortKey={'TITLE'}
                         onSort={onSort}
+                        activeSortKey={sortKey}
                     >
                         Title
                     </Sort>
@@ -21,6 +22,7 @@ const Table = ({ list, onDismiss, sortKey, onSort, isSortReverse }) => {
                     <Sort
                         sortKey={'AUTHOR'}
                         onSort={onSort}
+                        activeSortKey={sortKey}
                     >
                         Author
                     </Sort>
@@ -29,6 +31,7 @@ const Table = ({ list, onDismiss, sortKey, onSort, isSortReverse }) => {
                     <Sort
                         sortKey={'COMMENTS'}
                         onSort={onSort}
+                        activeSortKey={sortKey}
                     >
                         Comments
                     </Sort>
@@ -37,6 +40,7 @@ const Table = ({ list, onDismiss, sortKey, onSort, isSortReverse }) => {
                     <Sort
                         sortKey={'POINTS'}
                         onSort={onSort}
+                        activeSortKey={sortKey}
                     >
                         Points
                     </Sort>
