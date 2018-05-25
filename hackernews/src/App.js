@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Table from './Table/index'
 import Button from './Button/index'
 import Search from './Search/index'
+import { sortBy } from 'lodash'
 import './App.css';
 
 import {
@@ -13,6 +14,14 @@ import {
     PARAM_PAGE,
     PARAM_HPP,
 } from './constants/index.js'
+
+export const SORTS = {
+    NONE: list => list,
+    TITLE: list => sortBy(list, 'title'),
+    AUTHOR: list => sortBy(list, 'author'),
+    COMMENTS: list => sortBy(list, 'num_comments').reverse(),
+    POINTS: list => sortBy(list, 'points').reverse()
+}
 
 // function isSearched(searchTerm) {
 //     return function(item) {
@@ -38,6 +47,7 @@ class App extends Component {
             searchTerm: DEFAULT_QUERY,
             error: null,
             isLoading: false,
+            sortKey: 'NONE',
         }
         this.onSearchSubmit = this.onSearchSubmit.bind(this)
         this.setSearchTopStories = this.setSearchTopStories.bind(this)
@@ -45,6 +55,7 @@ class App extends Component {
         this.onDismiss = this.onDismiss.bind(this)
         this.onSearchChange = this.onSearchChange.bind(this)
         this.needsToSearchTopStories = this.needsToSearchTopStories.bind(this)
+        this.onSort = this.onSort.bind(this)
     }
 
     setSearchTopStories(result) {
@@ -110,8 +121,12 @@ class App extends Component {
         this.setState({ searchTerm: event.target.value })
     }
 
+    onSort(sortKey) {
+        this.setState({ sortKey })
+    }
+
   render() {
-      const { searchTerm, results, searchKey, error, isLoading } = this.state
+      const { searchTerm, results, searchKey, error, isLoading, sortKey } = this.state
       const page = (
             results &&
             results[searchKey] &&
@@ -143,14 +158,16 @@ class App extends Component {
                     ? <div className="interactions"><p>Something went wrong.</p></div>
                     : <Table
                         list={list}
+                        sortKey={sortKey}
+                        onSort={this.onSort}
                         onDismiss={this.onDismiss}/>
                 }
                 <div className="interactions">
-                <ButtonWithLoading
-                    isLoading={isLoading}
-                    onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}>
-                    More
-                </ButtonWithLoading>
+                    <ButtonWithLoading
+                        isLoading={isLoading}
+                        onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}>
+                        More
+                    </ButtonWithLoading>
                 </div>
             </div>
         );
