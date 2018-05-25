@@ -24,6 +24,10 @@ import {
 
 const Loading = () => <div>Loading...</div>
 
+const withLoading = (Component) => ({ isLoading, ...rest }) => isLoading ? <Loading /> : <Component {...rest} />
+
+const ButtonWithLoading = withLoading(Button)
+
 class App extends Component {
     constructor(props) {
         super(props)
@@ -142,13 +146,11 @@ class App extends Component {
                         onDismiss={this.onDismiss}/>
                 }
                 <div className="interactions">
-                {
-                    isLoading
-                    ? <Loading />
-                    : <Button onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}>
-                        More
-                      </Button>
-                }
+                <ButtonWithLoading
+                    isLoading={isLoading}
+                    onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}>
+                    More
+                </ButtonWithLoading>
                 </div>
             </div>
         );
