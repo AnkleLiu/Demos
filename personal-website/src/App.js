@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navbar from './components/Navbar'
 import logo from './logo.svg';
 import classes from './App.css';
 
@@ -13,6 +14,7 @@ class App extends Component {
         <p className={classes['App-intro']}>
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <Navbar />
       </div>
     );
   }

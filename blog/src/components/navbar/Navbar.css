@@ -1,0 +1,5 @@
+@import '~antd/dist/antd.css';
+
+.ant-form-inline {
+    margin-top: 15px;
+}
